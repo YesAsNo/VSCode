@@ -1,3 +1,4 @@
+package tehtava;
 public class Tiskikone {
 
     private int id;
@@ -36,5 +37,7 @@ public class Tiskikone {
     public void setPesuohjelma(String pesuohjelma){
         this.pesuohjelma=pesuohjelma;
     }
+
+
     
 }
