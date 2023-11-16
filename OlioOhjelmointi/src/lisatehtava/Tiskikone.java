@@ -45,3 +45,4 @@ public class Tiskikone {
 		return "Tiskikone [id=" + id + ", merkki=" + merkki + ", malli=" + malli + ", pesuohjelma=" + pesuohjelma + "]";
 	}
 }
+

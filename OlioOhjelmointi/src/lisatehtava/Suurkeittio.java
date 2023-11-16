@@ -21,39 +21,79 @@ public class Suurkeittio {
 	}
 
 	
-	private static void lueTiskikone(Tiskikone x) {
-		while(true){
-		System.out.print("Anna id: ");
-		String s=sc.nextLine();
-		int i=Integer.parseInt(s);
-		x.setId(i);
-		break;
-		}
+	private static void lueTiskikone(Tiskikone tiskikone) {
+		String s;
+		int i = 0;
+		boolean done=false;
 
-		while(true){
-			System.out.print("Anna merkki: ");
-			String s=sc.nextLine();
-			if (s.length() >=3){
-			x.setMerkki(s);
-			break;
-			} else {
-				System.out.println("Vähintään kolme merkkiä pitkä nimi.");
+		do {
+			System.out.print("Anna id: ");
+			s=sc.nextLine();
+			try {
+				i=Integer.parseInt(s);
+				done=true;
 			}
-		
-		System.out.print("Anna malli: ");
-		s=sc.nextLine();
-		x.setMalli(s);
-		
-		System.out.print("Anna pesuohjelma: ");
-		s=sc.nextLine();
-		i=Integer.parseInt(s);
-		x.setPesuohjelma(i);
-		}
+			catch(NumberFormatException e) {
+				System.out.println("Anna kokonaisluku!");
+				continue;
+			}
+		}while (!done);
+
+		tiskikone.setId(i);
+
+
+		do {
+			System.out.print("Anna merkki: ");
+			s=sc.nextLine();
+			if (!(s.length()>=3)) {
+				System.out.println("Anna ainakin 3 merkkiä.");
+			}
+
+			else {
+				break;
+			}
+
+		}while (true);
+			tiskikone.setMerkki(s);
+
+		do {
+			System.out.print("Anna malli: ");
+			s=sc.nextLine();
+
+			if (!(s.length()>=3)) {
+				System.out.println("Anna ainakin 3 merkkiä.");
+			}
+
+			else {
+				break;
+			}
+
+		}while (true);
+		tiskikone.setMalli(s);
+
+		done=false;
+
+		do {
+			System.out.print("Anna pesuohjelma: ");
+			s=sc.nextLine();
+			try {
+				i=Integer.parseInt(s);
+				done=true;
+			}
+			catch(NumberFormatException e) {
+				System.out.println("Anna kokonaisluku!");
+				continue;
+			}
+		}while (!done);
+
+		tiskikone.setPesuohjelma(i);
 	}
 
 
 	private static void tulosta(Tiskikone tk) {
 		System.out.println(tk);
 	}
+
+
 }
 
