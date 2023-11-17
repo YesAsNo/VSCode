@@ -17,6 +17,8 @@ public class KalaTaulu {
         in.close();
 	}
 
+    private static int kalacount = 1;
+
 	private static void tulostaKalat(Kala[] taulu) {
 		for (int i=0;i<taulu.length;i++) {
 			System.out.println(taulu[i]);
@@ -26,7 +28,7 @@ public class KalaTaulu {
     private static void lueKalanTiedot(Kala taulu, Scanner in){
         // Kysyy tiedot käyttäjältä
         
-        System.out.println("------ Kalan Tiedot ------");
+        System.out.println("------ Kalan "+kalacount+++" Tiedot ------");
         System.out.println("Anna Id");
 		taulu.setId(in.nextLine());
         System.out.println("Anna Paino");
