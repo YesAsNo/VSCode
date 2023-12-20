@@ -1,8 +1,13 @@
 package koe;
 
 public class Kyna {
+
+// Variables
+
     private int hinta;
     private String vari;
+
+// Getterit ja setterit
 
     public int getHinta() {
         return hinta;
