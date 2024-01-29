@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hunterform</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>Fill in</h2>
+<form>
+Nimi:<input id='nimi' type='text' name='nimi' value=''><br>
+Pyssy:<input id='pyssy' type='text' name='pyssy' value=''><br>
+</form>
+<button name='laheta' id='laheta'>Lähetä</button>
+
+<p id='tulos'>Tulos tähän</p>
+<script>
+$(document).ready(function(){
+	$("#laheta").click(function(){
+		$.post("savehunter.php",
+		{
+			nimi:$("#nimi").val(),
+			pyssy:$("#pyssy").val()
+		},
+		function(data, status){
+			$("#tulos").html(data);					
+		});
+	});
+});
+</script>
+
+
+
+</body>
+</html>

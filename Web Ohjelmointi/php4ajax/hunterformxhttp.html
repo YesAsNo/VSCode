@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hunterform</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>Fill in</h2>
+<form>
+Nimi:<input id='nimi' type='text' name='nimi' value=''><br>
+Pyssy:<input id='pyssy' type='text' name='pyssy' value=''><br>
+</form>
+<button name='laheta' id='laheta' onclick='lahetaPyssy();'>Lähetä</button>
+
+<p id='tulos'>Tulos tähän</p>
+<p id='tulos2'>Tulos tähän</p>
+<script>
+function lahetaPyssy() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+		     document.getElementById("tulos").innerHTML = this.responseText;
+		     tulos2.innerHTML = this.responseText;
+	  }
+	};
+	xhttp.open("post", "savehunter.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send("nimi="+nimi.value+"&pyssy="+pyssy.value);
+}
+</script>
+
+
+
+</body>
+</html>
